@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+SKNet.egg-info/PKG-INFO
+SKNet.egg-info/SOURCES.txt
+SKNet.egg-info/dependency_links.txt
+SKNet.egg-info/requires.txt
+SKNet.egg-info/top_level.txt
+sknet/__init__.py
+sknet/sequential.py

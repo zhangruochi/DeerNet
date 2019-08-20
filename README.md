@@ -4,11 +4,11 @@
 SKNet is a new type of neural network that is simple in structure but complex in neuron. Each of its neuron is a traditional estimator such as SVM, RF, etc.  
 
 ## Fetaures 
-We think that such a network has many applicable scenarios.  
+We think that such a network has many applicable scenarios. For example: 
 - We don't have enough samples to train neural networks. 
 - We hope to improve the accuracy of the model by means of emsemble. 
 - We hope to learn some new features. 
-- We want to save a lot of parameter adjustment time while getting a stable and good model.
+- We want to save a lot of parameter-tuning time while getting a stable and good model.
 
 
 ## Installation
@@ -20,7 +20,7 @@ pip install sknet
 
 ## Example
 
-### Computation Graph
+## Computation Graph
 
 ![](./computation_graph.png)
 
@@ -47,7 +47,6 @@ features = data.data
 target = data.target
 
 X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=42)
-
 
 
 layer1 = Layer([
