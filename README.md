@@ -51,12 +51,13 @@ layer2 = Layer([
     SKNeuron(Lasso(),params = {"random_state" = 1}),
 ])
 
+
 layer3 = Layer([
     SKNeuron(LogisticRegression(),params = {"random_state" = 0}),
 ])
 
 
-model = Sequential([layer1,layer2,layer3],kf = KFold(ntrain, n_folds= NFOLDS, random_state=0))
+model = Sequential([layer1,layer2,layer3],n_folds = NFOLDS)
 model.fit(X_train,y_train)
 
 predicted = model.predict(X_test)
