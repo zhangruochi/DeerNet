@@ -22,7 +22,7 @@ pip install sknet
 
 ### Computation Graph
 
-![](./computation_graph.jpg)
+![](./computation_graph.png)
 
 ### Code
 
