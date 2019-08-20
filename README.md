@@ -20,38 +20,52 @@ pip install sknet
 
 ## Example
 
+### Computation Graph
+
+![](./computation_graph.jpg)
+
+### Code
+
 ```python
-from sknet import Layer,Sequential
+from sknet import Layer,Sequential,SKNeuron
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import AdaBoostRegressor
 from sklearn.svm import LinearSVR
 from sklearn.linear_model import Lasso
 from sklearn.linear_model import LogisticRegression
 
+NFOLDS = 5 # set folds for out-of-fold prediction
+
+
 layer1 = Layer([
-    RandomForestRegressor(random_state = 1),
-    RandomForestRegressor(random_state = 2),
-    AdaBoostRegressor(random_state = 1),
-    AdaBoostRegressor(random_state = 2),
-    LinearSVR(random_state = 1),
-    LinearSVR(random_state = 2),
+    SKNeuron(RandomForestRegressor(),params = {"random_state" = 0}),
+    SKNeuron(RandomForestRegressor(),params = {"random_state" = 1}),
+    SKNeuron(AdaBoostRegressor(),params = {"random_state" = 0}),
+    SKNeuron(AdaBoostRegressor(),params = {"random_state" = 1}),
+    SKNeuron(LinearSVR(),params = {"random_state" = 0}),
+    SKNeuron(LinearSVR(),params = {"random_state" = 1}),
 ])
 
 layer2 = Layer([
-    Lasso(random_state = 1),
-    Lasso(random_state = 2),
+    SKNeuron(Lasso(),params = {"random_state" = 0}),
+    SKNeuron(Lasso(),params = {"random_state" = 1}),
 ])
 
 layer3 = Layer([
-    LogisticRegression(random_state = 1),
+    SKNeuron(LogisticRegression(),params = {"random_state" = 0}),
 ])
 
 
-model = Sequential([layer1,layer2,layer3])
+model = Sequential([layer1,layer2,layer3],kf = KFold(ntrain, n_folds= NFOLDS, random_state=0))
 model.fit(X_train,y_train)
 
 predicted = model.predict(X_test)
-
 ```
+
+## Todo
+- Two or three level stacking
+- multi-processing
+- features proxy
+
 
 
