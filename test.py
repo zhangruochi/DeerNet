@@ -4,13 +4,19 @@ from sklearn.ensemble import AdaBoostRegressor
 from sklearn.svm import LinearSVR
 from sklearn.linear_model import Lasso
 from sklearn.linear_model import LogisticRegression
+
+
 from sklearn.datasets import load_breast_cancer
-
-
+from sklearn.model_selection import train_test_split
 
 data = load_breast_cancer()
 features = data.data
 target = data.target
+
+X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=42)
+
+
+
 
 print(target.shape,features.shape)
 ## (569,) (569, 30)
@@ -37,9 +43,8 @@ layer3 = Layer([
     SKNeuron(LogisticRegression,params = {"random_state": 0}),
 ])
 
-print(layer2[0])
 
-# model = Sequential([layer1,layer2,layer3],kf = KFold(ntrain, n_folds= NFOLDS, random_state=0))
-# model.fit(X_train,y_train)
+model = Sequential([layer1,layer2,layer3],n_splits = 5)
+model.fit(X_train,y_train)
 
 # predicted = model.predict(X_test)
