@@ -5,7 +5,7 @@ SKNet is a new type of neural network that is simple in structure but complex in
 
 ## Fetaures 
 We think that such a network has many applicable scenarios.  
-- we don't have enough samples to train neural networks. 
+- We don't have enough samples to train neural networks. 
 - We hope to improve the accuracy of the model by means of emsemble. 
 - We hope to learn some new features. 
 - We want to save a lot of parameter adjustment time while getting a stable and good model.
