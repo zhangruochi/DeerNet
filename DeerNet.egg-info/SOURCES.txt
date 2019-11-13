@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+DeerNet.egg-info/PKG-INFO
+DeerNet.egg-info/SOURCES.txt
+DeerNet.egg-info/dependency_links.txt
+DeerNet.egg-info/requires.txt
+DeerNet.egg-info/top_level.txt
+deernet/__init__.py
+deernet/sequential.py
