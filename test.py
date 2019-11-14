@@ -35,8 +35,6 @@ features = scale.fit_transform(features)
 X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=42)
 
 
-print(X_train.shape)
-
 layer1 = Layer([
     SKNeuron(RandomForestRegressor,params = {"random_state": 0, "n_estimators": 100}),
     SKNeuron(GradientBoostingRegressor,params = {"random_state": 0,"n_estimators": 100}),
